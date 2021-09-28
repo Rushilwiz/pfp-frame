@@ -3,7 +3,8 @@
 {% load socialaccount %}
 
 {% block content %}
-<h1>Welcome {{ request.user.first_name }}!</h1>
-<h2>Step 2</h2>
-<img src="{{ data }}" alt="">
+<h1>Here's your new profile pic {{ request.user.first_name }}!</h1>
+<h2>Just download and change your profile picture to this :)</h2>
+<img src="{{ data.image.url }}" alt="">
+<a download="pfp.jpg" href="{{ data.image.url }}" title="Profile Picture"><button class="btn btn-secondary mt-2"><i class="fa fa-download fa-fw"></i>Download Image</button></a>
 {% endblock %}

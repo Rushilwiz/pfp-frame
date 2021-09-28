@@ -2,9 +2,11 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 
+from django.core.files import File
 from PIL import Image
 import requests
 from io import BytesIO
+from urllib.request import urlretrieve
 
 
 # Create your models here.
@@ -18,9 +20,9 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        r = requests.get(self.user.socialaccount_set.first().get_avatar_url())
-        img = Image.open(BytesIO(r.content))
-        img.thumbnail((300,300))
-        print(img)
-        print(settings.MEDIA_ROOT + self.image.name)
-        self.image.save("image.jpg", img)
+        if bool(self.image):
+            img = Image.open(self.image.path)
+            frame = Image.open(settings.MEDIA_ROOT + "/frame.png")
+            img.thumbnail((500, 500))
+            img.paste(frame, (0,0), frame)
+            img.save(self.image.path)

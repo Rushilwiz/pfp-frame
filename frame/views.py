@@ -8,7 +8,6 @@ from urllib.request import urlretrieve
 from django.core.files import File
 
 import requests
-import facebook
 
 # Create your views here.
 

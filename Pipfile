@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 django-allauth = "*"
 facebook-sdk = "*"
+gunicorn = "*"
 
 [dev-packages]
 

@@ -5,6 +5,6 @@
 {% block content %}
 <h1>Here's your new profile pic {{ request.user.first_name }}!</h1>
 <h2>Just download and change your profile picture to this :)</h2>
-<img src="{{ data.image.url }}" alt="">
-<a download="pfp.jpg" href="{{ data.image.url }}" title="Profile Picture"><button class="btn btn-secondary mt-2"><i class="fa fa-download fa-fw"></i>Download Image</button></a>
+<img class="img-fluid" src="{{ data.image.url }}" alt="">
+<small class="m-2">Don't worry if it looks weird here, it should be the right size when you download it </small><a download="pfp.jpg" href="{{ data.image.url }}" title="Profile Picture"><button class="btn btn-secondary mt-2"><i class="fa fa-download fa-fw"></i>Download Image</button></a>
 {% endblock %}

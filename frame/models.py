@@ -23,7 +23,7 @@ class Profile(models.Model):
         if bool(self.image):
             img = Image.open(self.image.path)
             frame = Image.open(settings.MEDIA_ROOT + "/frame.png")
-            img.thumbnail((300, 300))
+            img.thumbnail((500, 500))
             width, height = img.size
             frame.thumbnail((width, height))
             img.paste(frame, (0,0), frame)
